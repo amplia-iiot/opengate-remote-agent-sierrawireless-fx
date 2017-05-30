@@ -1,0 +1,22 @@
+javaPackage:
+{
+    es.amplia.product.devices.sierrawireless
+    es.amplia.product.devices.sierrawireless.atcommand
+    es.amplia.product.devices.sierrawireless.connection
+    es.amplia.product.devices.sierrawireless.message.data.dmm
+    es.amplia.product.devices.sierrawireless.message.data.iot
+    es.amplia.product.devices.sierrawireless.message.operation
+}
+
+requires: {
+	component: {
+        // Java components need to require:
+        // - either *embeddedOracleJvm* component (if JVM is on the host, ready to be bundled)
+        // - or *onTargetOracleJvm* (if JVM is already installed on the device)
+        // embeddedOracleJvm
+        onTargetOracleJvm
+	}
+	api: {
+		Data = le_data.api
+	}
+}

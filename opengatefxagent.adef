@@ -1,0 +1,27 @@
+
+version: 1.0.0
+maxFileSystemBytes: 512K
+maxMemoryBytes: 81920K
+maxThreads: 30
+executables:
+{
+	opengatefxagent = ( opengatefxagentComponent )
+}
+processes:
+{
+	run:
+	{
+		( opengatefxagent )
+	}
+	envVars:{
+        PATH=/home/root/ejdk1.8.0_121/bin:/legato/systems/current/apps/test/read-only/bin:/usr/local/bin:/usr/bin:/bin
+    }
+    faultAction: restartApp
+	maxCoreDumpFileBytes: 512K
+	maxFileBytes: 512K
+}
+bindings:
+{
+    opengatefxagent.opengatefxagentComponent.Data -> dataConnectionService.le_data
+}
+sandboxed: false
